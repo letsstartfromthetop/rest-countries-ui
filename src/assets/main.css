@@ -1,0 +1,188 @@
+@import "./base.css";
+@import "tailwindcss";
+
+:root {
+    --bg-color: hsl(0, 0%, 98%);
+    --font-color: hsl(200, 15%, 8%);
+    --inputs: hsl(0, 0%, 52%);
+    --elements: hsl(0, 0%, 100%);
+    --shadow-color: rgba(238, 238, 238, 0.55);
+    --error-color: hsl(0, 72%, 51%);
+    --error-color-background: hsl(0, 93%, 94%);
+}
+
+:root.dark-theme {
+    --bg-color: hsl(207, 26%, 17%);
+    --font-color: hsl(0, 0%, 100%);
+    --elements: hsl(209, 23%, 22%);
+    --shadow-color: rgba(14, 12, 12, 0.55);
+    --inputs: hsl(209, 23%, 22%);
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+}
+
+p {
+    margin-bottom: 1em;
+    line-height: 1.4em;
+}
+
+strong {
+    font-weight: 600;
+}
+
+.wrapper {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--font-color);
+}
+
+.dark-theme header {
+    background-color: var(--inputs);
+}
+
+.content-wrapper {
+    padding: 0 80px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-weight: 800;
+    font-size: 2em;
+}
+
+button, .button, .dropdown-body {
+    background-color: var(--elements);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 30px;
+    box-shadow: 2px 3px 10px var(--shadow-color);
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.dark-theme button, .dark-theme .button, .dark-theme .dropdown-body {
+    background-color: var(--elements);
+    box-shadow: 2px 3px 10px var(--shadow-color);
+}
+
+.dropdown-body {
+    padding: 10px 0;
+    position: absolute;
+    transition: opacity .5s ease-out;
+    opacity: 0;
+    width: 100%;
+}
+
+.dropdown-body.active {
+    display: block;
+    opacity: 1;
+
+}
+
+.dropdown-body > div {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.dropdown-body > div.selected {
+    background-color: #eee;
+}
+
+/* Error Styles */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-icon {
+    font-size: 3rem;
+}
+
+.error-message {
+    color: var(--error-color);
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: var(--error-color-background);
+    margin: 1rem 0;
+}
+
+/* Loading Styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: 1rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--font-color);
+}
+
+
+.retry-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--elements);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.dark-theme .retry-button {
+    background-color: var(--elements);
+}
+
+.retry-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .retry-button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
